@@ -17,5 +17,4 @@ public class Movie {
         this.title = title;
         this.genre = genre;
     }
-
 }
