@@ -23,4 +23,9 @@ public class MovieController {
         return movieService.getAllMovies();
     }
 
+    @GetMapping
+    public MovieDTO getMovie(String id) {
+        return movieService.getMovieById(id);
+    }
+
 }
