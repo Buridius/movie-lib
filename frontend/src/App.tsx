@@ -4,9 +4,9 @@ import Movies from "./pages/Movies.tsx";
 function App() {
 
   return (
-    <>
-        <Movies/>
-    </>
+      <>
+          <Movies/>
+      </>
   )
 }
 

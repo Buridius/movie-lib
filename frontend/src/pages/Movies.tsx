@@ -11,7 +11,7 @@ export default function Movies() {
 
     return (
         <div style={{ padding: 20 }}>
-            <h1>Movie Library</h1>
+            <h1 className="text-shadow-blue-500 ">Movie Library</h1>
 
             <ul>
                 {movies.map((m) => (
