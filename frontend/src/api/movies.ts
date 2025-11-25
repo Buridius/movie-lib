@@ -1,12 +1,12 @@
 import axios from "axios";
+import type {Movie} from "../type/movie.ts";
 
-export interface MovieDTO {
-    id: string;
-    title: string;
-    genre: string;
+export async function getMovies(): Promise<Movie[]> {
+    const response = await axios.get("/api/movies");
+    return response.data;
 }
 
-export async function getMovies(): Promise<MovieDTO[]> {
-    const response = await axios.get("/api/movies");
+export  async function addMovie(movie: Movie): Promise<void> {
+    const response = await axios.post("/api/movies", movie);
     return response.data;
 }
