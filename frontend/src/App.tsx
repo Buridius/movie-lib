@@ -6,6 +6,7 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./pages/Login";
 import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
+import MovieDetailsPage from "./pages/MovieDetailsPage.tsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/movie" element={<Movies />} />
                   <Route path="/movie/add" element={<Add />} />
+                  <Route path={"/movies/:publicId"} element={<MovieDetailsPage/>}/>
                   <Route path="/login" element={<Login />} />
               </Routes>
           <Footer />

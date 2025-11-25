@@ -1,12 +1,16 @@
 interface MovieCardProps {
+    publicId: string,
     title: string;
     genre: string;
-    poster?: string;
+    poster?: string,
+    onClick: () => void
 }
 
-export default function MovieCard({ title, genre, poster }: MovieCardProps) {
+
+
+export default function MovieCard({ title, genre, poster, onClick }: MovieCardProps) {
     return (
-        <div className="movie-card">
+        <div onClick={onClick} className="movie-card">
             {poster ? (
                 <img src={poster} alt={title} className="movie-poster" />
             ) : (

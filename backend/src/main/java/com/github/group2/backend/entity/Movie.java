@@ -9,11 +9,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Movie {
     @Id
     private String id;
+    private String publicId;
     private String title;
     private String genre;
 
-    public Movie(String id, String title, String genre) {
+    public Movie(String id,String publicId, String title, String genre) {
         this.id = id;
+        this.publicId = publicId;
         this.title = title;
         this.genre = genre;
     }
