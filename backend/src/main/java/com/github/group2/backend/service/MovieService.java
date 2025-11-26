@@ -3,16 +3,19 @@ package com.github.group2.backend.service;
 import com.github.group2.backend.dto.MovieDTO;
 import com.github.group2.backend.entity.Movie;
 import com.github.group2.backend.repository.MovieRepository;
+import com.github.group2.backend.util.MovieMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+
 @Service
 public class MovieService {
 
     private final MovieRepository movieRepository;
+
 
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
@@ -22,26 +25,17 @@ public class MovieService {
         return movieRepository
                 .findAll()
                 .stream()
-                .map(movie -> new MovieDTO(
-                        movie.getPublicId(),
-                        movie.getTitle(),
-                        movie.getGenre()
-                ))
+                .map((MovieMapper::movieToMovieDto))
                 .toList();
     }
 
-    public MovieDTO getMovieByPublicId(String publicId) {
+    public MovieDTO getMovieByPublicId(String id) {
+        Movie movie = movieRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return MovieMapper.movieToMovieDto(movie);
+    }
 
-        Movie movie = movieRepository.findMovieByPublicId(publicId);
-        if (movie == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Movie not found");
-        }
-
-
-       return new MovieDTO(
-        movie.getPublicId(),
-        movie.getTitle(),
-        movie.getGenre()
-       );
+    public Movie saveMovie(MovieDTO movieDTO) {
+        Movie newMovie = new Movie(movieDTO.title(), movieDTO.genre());
+        return movieRepository.save(newMovie);
     }
 }

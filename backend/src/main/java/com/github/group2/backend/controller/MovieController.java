@@ -1,6 +1,7 @@
 package com.github.group2.backend.controller;
 
 import com.github.group2.backend.dto.MovieDTO;
+import com.github.group2.backend.entity.Movie;
 import com.github.group2.backend.service.MovieService;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,11 @@ public class MovieController {
     @GetMapping("/{publicId}")
     public MovieDTO getMovie(@PathVariable String publicId) {
         return movieService.getMovieByPublicId(publicId);
+    }
 
+    @PostMapping
+    public Movie addMovie(@RequestBody MovieDTO movieDTO) {
+        return movieService.saveMovie(movieDTO);
     }
 
 }
