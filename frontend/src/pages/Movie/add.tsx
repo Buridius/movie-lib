@@ -4,6 +4,7 @@ import {addMovie} from "../../api/movies.ts";
 
 export default function Add() {
     const [formData, setFormData] = useState<Movie>({title: "", genre: ""});
+    const [isSaved, setIsSaved] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({...formData, [e.target.name]: e.target.value });
@@ -15,6 +16,7 @@ export default function Add() {
         setFormData({ title: "", genre: "" });
          addMovie(formData).then((result) => {
              console.log("Movie added", result);
+             setIsSaved(true);
          })
 
     };

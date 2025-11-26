@@ -15,7 +15,6 @@ export default function Index() {
             .finally(() => setLoading(false));
     }, []);
 
-
     function handleMovieClick(publicId:string) {
         navigate(`/movies/${publicId}`);
     }
@@ -35,8 +34,8 @@ export default function Index() {
             <div className="movies-grid mt-4">
                 {movies.map((m) => (
                     <MovieCard
-                       onClick={() => handleMovieClick(m.publicId)}
-                        publicId={m.publicId}
+                       onClick={() => handleMovieClick(m.id)}
+                        publicId={m.id}
                         key={m.id}
                         title={m.title}
                         genre={m.genre}
