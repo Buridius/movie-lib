@@ -47,7 +47,7 @@ export default function Index() {
     }
 
     function handleEditMovie(id:string) {
-
+        console.log(id);
     }
 
     if (loading) {
