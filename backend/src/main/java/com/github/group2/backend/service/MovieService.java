@@ -38,4 +38,9 @@ public class MovieService {
         Movie newMovie = new Movie(movieDTO.title(), movieDTO.genre());
         return movieRepository.save(newMovie);
     }
+
+    public void deleteMovie(String publicId) {
+        movieRepository.deleteById(publicId);
+    }
+
 }

@@ -32,4 +32,13 @@ public class MovieController {
         return movieService.saveMovie(movieDTO);
     }
 
+    @DeleteMapping("/{publicId}")
+    public void deleteMovie(@PathVariable String publicId) {
+        movieService.deleteMovie(publicId);
+    }
+
+    @PostMapping("/{publicId}")
+    public Movie updateMovie(@RequestBody MovieDTO movieDTO) {
+        return null;
+    }
 }

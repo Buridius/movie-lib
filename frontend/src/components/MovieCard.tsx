@@ -3,14 +3,16 @@ interface MovieCardProps {
     title: string;
     genre: string;
     poster?: string,
-    onClick: () => void
+    onCardClick: () => void,
+    onDelete: () => void,
+    onEdit: () => void
 }
 
 
 
-export default function MovieCard({ title, genre, poster, onClick }: Readonly<MovieCardProps>) {
+export default function MovieCard({ title, genre, poster, onCardClick, onDelete, onEdit }: Readonly<MovieCardProps>) {
     return (
-        <button onClick={onClick} className="movie-card">
+        <div className="movie-card" onClick={onCardClick}>
             {poster ? (
                 <img src={poster} alt={title} className="movie-poster" />
             ) : (
@@ -18,10 +20,31 @@ export default function MovieCard({ title, genre, poster, onClick }: Readonly<Mo
                     No Image
                 </div>
             )}
+
             <div className="movie-info">
                 <h2>{title}</h2>
                 <p>{genre}</p>
             </div>
-        </button>
+
+            <button
+                className="delete"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete();
+                }}
+            >
+                Delete
+            </button>
+            <button
+                className="edit-button"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onEdit();
+                }}
+                >
+                Edit Movie
+            </button>
+        </div>
     );
 }
+

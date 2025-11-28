@@ -66,3 +66,19 @@
         color: #555;
     }
 }
+
+.delete,
+.edit-button {
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2a2a2a;
+}
+
+.delete:hover,
+.edit-button:hover {
+    opacity: 0.85;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2a2a2a;
+}
