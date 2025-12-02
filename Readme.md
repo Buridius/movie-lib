@@ -1,10 +1,10 @@
 # Movie Library
 
-![CI](https://github.com/nilijoski/movie-library/actions/workflows/maven.yml/badge.svg)
-![CD](https://github.com/nilijoski/movie-library/actions/workflows/deploy.yml/badge.svg)
-![Coverage](https://sonarcloud.io/api/project_badges/measure?project=nilijoski_movie-library&metric=coverage)
-![Docker](https://img.shields.io/docker/pulls/microman49/movie-lib?logo=docker)
-[![Live](https://img.shields.io/badge/Live-Online-green)](https://movie-library-d67x.onrender.com/)
+![CI](https://github.com/buridius/movie-lib/actions/workflows/maven.yml/badge.svg)
+![CD](https://github.com/buridius/movie-lib/actions/workflows/deploy.yml/badge.svg)
+![Coverage](https://sonarcloud.io/api/project_badges/measure?project=buridius_movie-lib&metric=coverage)
+![Docker](https://img.shields.io/docker/pulls/buridius/movie-lib?logo=docker)
+[![Live](https://img.shields.io/badge/Live-Online-green)](https://movie-lib-latest.onrender.com/)
 
 Java-Projekt zur Verwaltung einer Movie Library.
 
